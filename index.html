@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,29 +17,55 @@
         <h1>📒 CatatanKu</h1>
         <p>Simpan catatan pribadi kamu.</p>
 
+
+        <!-- FORM CATATAN -->
         <div class="form">
-            <input 
-                type="text" 
-                id="judul" 
+
+            <input
+                type="text"
+                id="judul"
                 placeholder="Judul catatan"
             >
 
-            <textarea 
-                id="isi" 
+            <textarea
+                id="isi"
                 placeholder="Tulis catatan kamu..."
             ></textarea>
 
-            <button onclick="tambahCatatan()">
+
+            <!-- Tombol simpan -->
+            <button
+                id="tombolSimpan"
+                onclick="tambahCatatan()"
+            >
                 ➕ Simpan Catatan
             </button>
+
+
+            <!-- Tombol batal edit -->
+            <button
+                id="tombolBatal"
+                onclick="batalEdit()"
+                style="display: none;"
+            >
+                ❌ Batal Edit
+            </button>
+
         </div>
 
+
+        <!-- DAFTAR CATATAN -->
         <div id="daftarCatatan"></div>
 
     </div>
 
+
+    <!-- SUPABASE -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="script.js"></script>
+
+    <!-- SCRIPT KITA -->
+    <script src="script.js"></script>
 
 </body>
+
 </html>

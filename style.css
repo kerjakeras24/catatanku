@@ -1,3 +1,7 @@
+/* =========================================
+   CATATANKU - NOTEBOOK STYLE
+========================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,73 +9,444 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f2f4f7;
-    padding: 40px;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    min-height: 100vh;
+    padding: 45px 20px;
+
+    color: #3f3f46;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.8), transparent 25%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.5), transparent 25%),
+        #d8d2c4;
 }
+
+
+/* =========================================
+   BUKU
+========================================= */
 
 .container {
-    max-width: 700px;
+    max-width: 780px;
     margin: auto;
+
+    padding: 40px 45px;
+
+    position: relative;
+
+    background-color: #fffdf5;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.18),
+        0 3px 8px rgba(0, 0, 0, 0.08);
+
+    overflow: hidden;
 }
+
+
+/* Garis buku */
+
+.container::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            transparent 31px,
+            #d9e4ed 32px
+        );
+
+    background-size: 100% 32px;
+
+    opacity: 0.65;
+}
+
+
+/* Garis merah kiri */
+
+.container::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 38px;
+
+    width: 2px;
+
+    background: #e99a9a;
+
+    opacity: 0.7;
+
+    pointer-events: none;
+}
+
+
+.container > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================
+   JUDUL
+========================================= */
 
 h1 {
+    font-family: Georgia, serif;
+
+    text-align: center;
+
+    font-size: 38px;
+
+    color: #292524;
+
     margin-bottom: 8px;
+
+    letter-spacing: 1px;
 }
 
-p {
-    margin-bottom: 25px;
-    color: #666;
+
+.container > p {
+    text-align: center;
+
+    color: #78716c;
+
+    margin-bottom: 32px;
+
+    font-style: italic;
+
+    font-size: 15px;
 }
+
+
+/* =========================================
+   FORM
+========================================= */
 
 .form {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 25px;
+    background: rgba(255, 253, 245, 0.95);
+
+    padding: 25px;
+
+    margin-bottom: 28px;
+
+    border: 1px solid #e5ded0;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.06);
+
+    position: relative;
 }
+
+
+.form::before {
+    content: "";
+
+    position: absolute;
+
+    top: -10px;
+    left: 50%;
+
+    transform: translateX(-50%) rotate(-1deg);
+
+    width: 90px;
+    height: 22px;
+
+    background: rgba(238, 220, 167, 0.65);
+
+    border-radius: 2px;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
 
 input,
 textarea {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+
+    padding: 4px 10px;
+
+    margin-bottom: 14px;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
     font-size: 15px;
+
+    line-height: 28px;
+
+    color: #3f3f46;
+
+    background: transparent;
+
+    border: none;
+
+    border-bottom: 2px solid #d6d3d1;
+
+    outline: none;
+
+    transition: 0.2s;
 }
+
+
+input:focus,
+textarea:focus {
+    border-bottom-color: #a16207;
+}
+
+
+/* =========================================
+   TEXTAREA
+========================================= */
 
 textarea {
-    height: 120px;
-    resize: none;
+    height: 140px;
+
+    resize: vertical;
+
+    line-height: 28px;
+
+    padding-top: 0;
+
+    background-image:
+        linear-gradient(
+            transparent 27px,
+            #dce5eb 28px
+        );
+
+    background-size: 100% 28px;
+
+    background-position: 0 0;
 }
+
+
+/* =========================================
+   TOMBOL SIMPAN
+========================================= */
 
 button {
-    width: 100%;
-    padding: 12px;
     border: none;
-    border-radius: 8px;
-    background: #222;
-    color: white;
+
+    border-radius: 5px;
+
+    padding: 11px 16px;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
     cursor: pointer;
+
+    transition: 0.2s;
 }
 
-button:hover {
-    opacity: 0.8;
+
+#tombolSimpan {
+    width: 100%;
+
+    background: #92400e;
+
+    color: #fffdf5;
+
+    margin-bottom: 9px;
 }
+
+
+#tombolSimpan:hover {
+    background: #78350f;
+
+    transform: translateY(-1px);
+}
+
+
+#tombolBatal {
+    width: 100%;
+
+    background: #e7e5e4;
+
+    color: #57534e;
+}
+
+
+/* =========================================
+   CATATAN
+========================================= */
 
 .catatan {
-    background: white;
-    padding: 18px;
-    margin-bottom: 15px;
-    border-radius: 12px;
+    position: relative;
+
+    padding: 18px 25px 20px 35px;
+
+    margin-bottom: 20px;
+
+    background-color: #fffef8;
+
+    border: 1px solid #e7e1d4;
+
+    border-radius: 3px;
+
+    box-shadow:
+        2px 5px 10px rgba(0, 0, 0, 0.08);
+
+    transition: 0.2s;
+
+    /* Garis buku */
+    background-image:
+        linear-gradient(
+            transparent 27px,
+            #dce5eb 28px
+        );
+
+    background-size: 100% 28px;
+
+    background-position: 0 0;
 }
+
+
+/* Garis merah kiri catatan */
+
+.catatan::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 20px;
+
+    width: 2px;
+
+    background: #e9a0a0;
+
+    opacity: 0.6;
+}
+
+
+/* =========================================
+   JUDUL CATATAN
+========================================= */
 
 .catatan h3 {
-    margin-bottom: 8px;
+    font-family: Georgia, serif;
+
+    font-size: 20px;
+
+    line-height: 28px;
+
+    color: #292524;
+
+    margin-bottom: 0;
+
+    min-height: 28px;
 }
 
+
+/* =========================================
+   ISI CATATAN
+========================================= */
+
 .catatan p {
+    color: #57534e;
+
+    font-size: 15px;
+
+    line-height: 28px;
+
+    margin-bottom: 14px;
+
     white-space: pre-wrap;
-    margin-bottom: 10px;
+
+    overflow-wrap: anywhere;
+
+    word-break: break-word;
+}
+
+
+/* =========================================
+   TOMBOL EDIT
+========================================= */
+
+.catatan button:first-of-type {
+    background: #fef3c7;
+
+    color: #92400e;
+
+    margin-right: 7px;
+}
+
+
+.catatan button:first-of-type:hover {
+    background: #fde68a;
+}
+
+
+/* =========================================
+   TOMBOL HAPUS
+========================================= */
+
+.catatan button:last-of-type {
+    background: #fee2e2;
+
+    color: #991b1b;
+}
+
+
+.catatan button:last-of-type:hover {
+    background: #fecaca;
+}
+
+
+/* =========================================
+   RESPONSIVE HP
+========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px 10px;
+    }
+
+    .container {
+        padding: 30px 25px 30px 45px;
+    }
+
+    .container::after {
+        left: 30px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .form {
+        padding: 20px;
+    }
+
+    .catatan {
+        padding-left: 30px;
+    }
+
+    .catatan button {
+        width: 100%;
+
+        margin-top: 8px;
+
+        margin-right: 0;
+    }
 }
